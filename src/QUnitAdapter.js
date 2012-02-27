@@ -2,6 +2,7 @@
  * This is a QUnit adapter for jsTestDriver, supporting asyncTest/stop/start
  *
  * Extended from bundled QUnit adapter: http://code.google.com/p/js-test-driver/wiki/QUnitAdapter
+ * Both QUnit and jsTestDriver support asnyc test, but using different API, this adapter is based on the APIs of these too tools, and trying to transform from one(QUnit API) to the other(jsTestDriver).
  *
  * @author wangjeaf@gmail.com
  */
