@@ -13,7 +13,7 @@
 	}
 
 	// general test
-    var QUnitTestCase;
+    	var QUnitTestCase;
 	// async test
 	var AsyncQUnitTestCase;
 
@@ -22,16 +22,16 @@
 	 * @param {String} name module name
 	 * @param {Object} lifecycle life cycle of module, contains setup/teardown
 	 */
-    window.module = function module(name, lifecycle) {
+	window.module = function module(name, lifecycle) {
 		// general test and async test can exist in the same module
-        QUnitTestCase = TestCase(name);
+		QUnitTestCase = TestCase(name);
 		AsyncQUnitTestCase = AsyncTestCase(name + '_async');
-        QUnitTestCase.prototype.lifecycle = lifecycle || {};
-        AsyncQUnitTestCase.prototype.lifecycle = lifecycle || {};
-    };
+		QUnitTestCase.prototype.lifecycle = lifecycle || {};
+		AsyncQUnitTestCase.prototype.lifecycle = lifecycle || {};
+	};
 
 	// all functions added in window need name, otherwise will cause error in IE6, reason???
-    window.test = function test(name, expected, func, async) {
+    	window.test = function test(name, expected, func, async) {
 		// generate test name in CamelCase
 		name = ('test ' + name).replace(/^\s+|\s$/g, '').replace(/\s+\w/g, function(e) {
 			return e.replace(/\s+/g, '').toUpperCase();
@@ -61,19 +61,19 @@
 				}
 			};
 		}
-    };
+    	};
 
 	window.asyncTest = function asyncTest(name, expect, func) {
 		window.test(name, expect, func, true);
 	};
     
-    window.expect = function expect(count) {
-        expectAsserts(count);
-    };
+    	window.expect = function expect(count) {
+        	expectAsserts(count);
+    	};
     
-    window.ok = function ok(actual, msg) {
-        assertTrue(msg ? msg : '', !!actual);
-    };
+   	window.ok = function ok(actual, msg) {
+       		assertTrue(msg ? msg : '', !!actual);
+    	};
     
 	window.equal = function equal(a, b, msg) {
 		assertEquals(msg ? msg : '', b, a);
@@ -91,31 +91,31 @@
 		assertNotSame(msg ? msg : '', b, a);
 	};
 
-    window.equals = function equals(a, b, msg) {
-        assertEquals(msg ? msg : '', b, a);
-    };
+	window.equals = function equals(a, b, msg) {
+		assertEquals(msg ? msg : '', b, a);
+	};
     
 	window.start = function start() {
 		// if source code is not replaced in jsTestDriver, error will be thrown.
 		fail('start is not supported, should use AsyncTestCase instead');
 	}
 
-    window.stop = function stop() {
+	window.stop = function stop() {
 		// if source code is not replaced in jsTestDriver, error will be thrown.
 		fail('stop is not supported, should use AsyncTestCase instead');
 	};
     
-    window.same = function same(a, b, msg) {
-        assertTrue(msg ? msg : '', window.equiv(b, a));
-    };
-    
-    window.reset = function reset() {
-        fail('reset method is not available when using JS Test Driver');
-    };
+	window.same = function same(a, b, msg) {
+		assertTrue(msg ? msg : '', window.equiv(b, a));
+	};
 
-    window.isLocal = function isLocal() {
-        return false;
-    };
+	window.reset = function reset() {
+		fail('reset method is not available when using JS Test Driver');
+	};
+
+	window.isLocal = function isLocal() {
+		return false;
+	};
     
 	window.raises = function raises(stmt, msg) {
 		var flag = false;
@@ -127,11 +127,11 @@
 		assertTrue(msg ? msg : '', flag);
 	}
 
-    window.QUnit = {
-        equiv: window.equiv,
-        ok: window.ok,
+	window.QUnit = {
+        	equiv: window.equiv,
+        	ok: window.ok,
 		reset : function reset(){}
-    };
+	};
 
 	/**
 	 * add a test to AsyncTestCase
