@@ -4,7 +4,7 @@
  * Extended from bundled QUnit adapter: http://code.google.com/p/js-test-driver/wiki/QUnitAdapter
  * Both QUnit and jsTestDriver support asnyc test, but using different API, 
  *    this adapter is based on the APIs of these too tools, 
- *    and trying to transform from one(QUnit API) to the other(jsTestDriver).
+ *    and trying to transform from one(QUnit API) to the other(jsTestDriver API).
  *
  * @author wangjeaf@gmail.com
  */
